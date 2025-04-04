@@ -1,0 +1,18 @@
+<div class="main">
+    <h2>{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <label>SKU: <input formControlName="sku" /></label><br />
+    <label>Name: <input formControlName="name" /></label><br />
+    <label>Price: <input formControlName="price" type="number" /></label><br />
+    <label>Images:</label>
+    <div formArrayName="images">
+        <div *ngFor="let ctrl of images.controls; let i = index">
+        <input [formControlName]="i" placeholder="Image URL" />
+        <button type="button" (click)="removeImage(i)">Remove</button>
+        </div>
+        <button type="button" (click)="addImage()">Add Image</button>
+    </div>
+    <br />
+    <button type="submit">{{ isEditMode ? 'Update' : 'Create' }}</button>
+    </form>
+</div>

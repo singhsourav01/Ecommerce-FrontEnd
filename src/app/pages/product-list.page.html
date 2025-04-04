@@ -1,0 +1,21 @@
+<div class="main">
+    <h2 class="prodcut-list-heading">Product List</h2>
+    <button class="add-product-button" (click)="goToAdd()">Add Product</button>
+    <div class="outer">
+        <div *ngFor="let product of products" class="product-card">
+            <div class="product-title">Name: {{ product.prodcut_name }}</div>
+            <div class="product-sku">SKU: {{ product.prodcut_sku }}</div>
+            <div class="product-price">Price: ₹{{ product.prodcut_price }}</div>
+
+            <div class="image-gallery">
+                Images: <img *ngFor="let img of product.images" [src]="img.prodcut_image_url" />
+            </div>
+
+            <div>
+                <button class="prodcut-list-edit" (click)="onEdit(product.prodcut_id)">Edit</button>
+                <button class="prodcut-list-delete" (click)="deleteProduct(product.prodcut_id)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+</div>
