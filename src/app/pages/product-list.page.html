@@ -3,11 +3,11 @@
     <button class="add-product-button" (click)="goToAdd()">Add Product</button>
     <div class="outer">
         <div *ngFor="let product of products" class="product-card">
-            <div class="product-title">Name: {{ product.prodcut_name }}</div>
-            <div class="product-sku">SKU: {{ product.prodcut_sku }}</div>
-            <div class="product-price">Price: ₹{{ product.prodcut_price }}</div>
+            <div class="product-title common-class">Name: {{ product.prodcut_name }}</div>
+            <div class="product-sku common-class">SKU: {{ product.prodcut_sku }}</div>
+            <div class="product-price common-class">Price: ₹{{ product.prodcut_price }}</div>
 
-            <div class="image-gallery">
+            <div class="image-gallery common-class">
                 Images: <img *ngFor="let img of product.images" [src]="img.prodcut_image_url" />
             </div>
 

@@ -1,0 +1,22 @@
+.main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  
+  .main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('../assets/images/ecommerce-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(4px); 
+    opacity: 0.8;
+    z-index: -1;
+  }
+  
