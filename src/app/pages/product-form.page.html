@@ -1,8 +1,8 @@
 <div class="main">
     <h2>{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <label>SKU: <input formControlName="sku" /></label><br />
-    <label>Name: <input formControlName="name" /></label><br />
+        <label>Name: <input formControlName="name" /></label><br />
+        <label>SKU: <input formControlName="sku" /></label><br />
     <label>Price: <input formControlName="price" type="number" /></label><br />
     <label>Images:</label>
     <div formArrayName="images">

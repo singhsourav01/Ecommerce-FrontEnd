@@ -23,8 +23,8 @@ export class ProductListPage {
       this.products = res.data;
     });
   }
-  onEdit(productId: string) {
-    this.router.navigate(['/edit', productId]);
+  onEdit(id: string) {
+    this.router.navigate(['/edit', id]);
   }
   
   goToAdd() {

@@ -37,17 +37,22 @@ export class ProductFormPage implements OnInit {
     if (id) {
       this.isEditMode = true;
       this.productId = id;
-      this.service.getProduct(id).subscribe((product) => {
+  
+      this.service.getProduct(id).subscribe((res) => {
+        const product = res.data; 
+
         this.productForm.patchValue({
-          sku: product.prodcut_sku,
-          name: product.prodcut_name,
-          price: +product.prodcut_price,
+          sku: product.prodcut_sku || "",  
+          name: product.prodcut_name || "",
+          price: +product.prodcut_price || 0,
         });
+ 
         const urls = product.images.map((img) => img.prodcut_image_url);
         this.productForm.setControl('images', this.fb.array(urls.map(url => this.fb.control(url))));
       });
     }
   }
+  
 
   get images() {
     return this.productForm.get('images') as FormArray;

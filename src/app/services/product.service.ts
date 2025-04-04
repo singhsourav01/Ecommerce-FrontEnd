@@ -2,9 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product, CreateProduct } from '../models/product.model';
 import { Observable } from 'rxjs';
-
+interface ProductResponse {
+  status: boolean;
+  data: Product;
+}
 @Injectable({ providedIn: 'root' })
 export class ProductService {
+
+  
   private readonly baseUrl = 'https://e-commerce-product-module-a9gz.onrender.com';
 
   constructor(private http: HttpClient) {}
@@ -13,8 +18,8 @@ export class ProductService {
     return this.http.get<{ data: Product[] }>(`${this.baseUrl}/api/products`);
   }
 
-  getProduct(id: string): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/api/product/${id}`);
+  getProduct(id: string): Observable<ProductResponse> {
+    return this.http.get<ProductResponse>(`${this.baseUrl}/api/product/${id}`);
   }
 
   createProduct(payload: CreateProduct) {
